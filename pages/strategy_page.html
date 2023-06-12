@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header><a href="index.html"> GameUniverse</a> 
+        <a href="cart.html"><button type="button" id="cart"></button></a>         
+            <input type="search" id="find_items" placeholder="Encontre o seu game">
+            <button type="button" id="find_items_buttom"></button>
+
+    </header>
+    <main>
+        <div id="show">
+            <section>
+                <img src="./images/img jogos/tetris.jpg" id="games_images">
+                <label id="games_description"> Tetris Effect</label>
+                <label id="games_price"> R$ 1,99</label>
+                <button id="games_buttons" onclick="adicionar_ao_carrinho(15)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="./images/img jogos/chess.jpg" id="games_images">
+                <label id="games_description"> Pure Chess</label>
+                <label id="games_price"> R$ 21,99</label>
+                <button id="games_buttons" onclick="adicionar_ao_carrinho(16)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="./images/img jogos/farm.jpg" id="games_images">
+                <label id="games_description"> Farming Simulator 19 Platinum Edition</label>
+                <label id="games_price"> R$ 111,99</label>
+                <button id="games_buttons" onclick="adicionar_ao_carrinho(17)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="./images/img jogos/the-last-of-us-remastered.jpg" id="games_images">
+                <label id="games_description"> The Last of Us</label>
+                <label id="games_price"> R$ 29,99</label>
+                <button id="games_buttons" onclick="adicionar_ao_carrinho(18)">Adicionar ao carrinho</button>
+            </section>
+        </div>
+    </main>
+    <aside>
+        <a href="top_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/top.png)">Mais Vendidos</button></a>        
+        <a href="action_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/action.png)">Ação</button></a>
+        <a href="adventure_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/adventure.png);">Aventura</button></a>
+        <a href="strategy_page.html"><button type="button" class="aside_fixed" style="background-image: url(./images/strategy.png);">Estratégia</button></a>
+        <a href="RPG_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/rpg.png);">RPG</button></a>
+        <a href="sports_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/sports.png);">Esporte</button></a>
+        
+
+    </aside>
+    <footer>Rodapé</footer>
+    <script src="script.js"></script>
+</body>
+</html>
