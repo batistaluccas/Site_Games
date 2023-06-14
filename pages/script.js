@@ -1,4 +1,4 @@
-
+let valor = 0;
 let ProdutosCarrinho = [];
 let ProdutosMatriz = [
     [1, "FC5", "Far Cry 5", 119.99, 5], 
@@ -23,7 +23,8 @@ let ProdutosMatriz = [
 
 if(localStorage.getItem("games") === null){
     localStorage.setItem("games",JSON.stringify(ProdutosMatriz)); 
-    localStorage.setItem("cart",JSON.stringify(ProdutosCarrinho));
+    localStorage.setItem("cart",JSON.stringify(ProdutosCarrinho));    
+    localStorage.setItem("total", JSON.stringify(valor));
 }
 
 
@@ -31,11 +32,37 @@ if(localStorage.getItem("games") === null){
 function adicionar_ao_carrinho(item){    
     let matriz_games = localStorage.getItem("games");
     matriz_games = JSON.parse(matriz_games);
-    let game = matriz_games[item-1];
+    let game_in_cart = matriz_games[item -1];
+    game_in_cart[4] = 1;
+    
     let matriz_cart = localStorage.getItem("cart");
     matriz_cart = JSON.parse(matriz_cart);
-    matriz_cart.push(game);
-    localStorage.setItem("cart",JSON.stringify(matriz_cart));
-    let teste = localStorage.getItem("cart");
-    console.log(teste);
+    
+
+    matriz_games = localStorage.getItem("games");
+    matriz_games = JSON.parse(matriz_games);
+    let game_in_store = matriz_games[item - 1];
+    if (game_in_store[4] != 0){
+        game_in_store[4] -= 1;
+        matriz_cart.push(game_in_cart);
+        localStorage.setItem("cart",JSON.stringify(matriz_cart));
+
+        let cart = localStorage.getItem("cart");
+        cart = JSON.parse(cart);
+        let valor = (cart[0][3]);
+            for(i = 1; i < (cart.length); i++){
+                valor = parseFloat((valor + (cart[i][3])).toFixed(2));
+            }
+            localStorage.removeItem("total");
+            localStorage.setItem("total",JSON.stringify(valor));
+    } else {
+        alert("Item Esgotado");
+        game_in_store[4] = 0;
+    }
+
+    matriz_games[item - 1] = game_in_store;
+    localStorage.removeItem("games");
+    localStorage.setItem("games",JSON.stringify(matriz_games));
+        
 }
+
