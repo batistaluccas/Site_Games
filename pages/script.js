@@ -1,68 +1,89 @@
 let valor = 0;
 let ProdutosCarrinho = [];
-let ProdutosMatriz = [
-    [1, "FC5", "Far Cry 5", 119.99, 5], 
-    [2, "FC6", "Far Cry 6", 219.99, 5],
-    [3, "FCP", "Far Cry Primal", 89.99, 5],
-    [4, "MK11", "Mortal Kombat 11", 59.99, 5],
-    [5, "UC4", "Uncharted 4", 219.99, 5],
-    [6, "ASO", "Assassin's Creed Odyssey Omega Edition", 319.99, 5],
-    [7, "DS3", "Dark Souls 3", 119.99, 5],
-    [8, "TW3", "The Witcher 3", 59.99, 5],
-    [9, "TW2", "The Witcher 2", 19.99, 5],
-    [10, "HZD", "Horizon Zero Dawn", 259.99, 5],
-    [11, "F23", "FIFA 23", 319.99, 5],
-    [12, "NBA", "NBA 2K19", 79.99, 5],
-    [13, "F20", "FIFA 20", 49.99, 5],
-    [14, "NFL", "Madden NFL 22", 249.99, 5],
-    [15, "TET", "Tetris Effect", 1.99, 5],
-    [16, "CSS", "Pure Chess", 21.99, 5],
-    [17, "FS", "Farming Simulator 19 Platinum Edition", 111.99, 5],
-    [18, "TLU", "The Last of Us", 29.99, 5]
+let ProdutosStore = [
+    {id: 0, nome: "Far Cry 5", valor: 119.99, quantidade: 5},
+    {id: 1, nome: "Far Cry 6", valor: 219.99, quantidade: 5},
+    {id: 2, nome: "Far Cry Primal", valor: 89.99, quantidade: 5},
+    {id: 3, nome: "Mortal Kombat 11", valor: 59.99, quantidade: 5},
+    {id: 4, nome: "Uncharted 4", valor: 219.99, quantidade: 5},
+    {id: 5, nome: "Assassin's Creed Odyssey Omega Edition", valor: 319.99, quantidade: 5},
+    {id: 6, nome: "Dark Souls 3", valor: 119.99, quantidade: 5},
+    {id: 7, nome: "The Witcher 3", valor: 59.99, quantidade: 5},
+    {id: 8, nome: "The Witcher 2", valor: 19.99, quantidade: 5},
+    {id: 9, nome: "Horizon Zero Dawn", valor: 259.99, quantidade: 5},
+    {id: 10, nome: "FIFA 23", valor: 319.99, quantidade: 5},
+    {id: 11, nome: "NBA 2K19", valor: 79.99, quantidade: 5},
+    {id: 12, nome: "FIFA 20", valor: 49.99, quantidade: 5},
+    {id: 13, nome: "Madden NFL 22", valor: 249.99, quantidade: 5},
+    {id: 14, nome: "Tetris Effect", valor: 1.99, quantidade: 5},
+    {id: 15, nome: "Pure Chess", valor: 21.99, quantidade: 5},
+    {id: 16, nome: "Farming Simulator 19 Platinum Edition", valor: 111.99, quantidade: 5},
+    {id: 17, nome: "The Last of Us", valor: 29.99, quantidade: 5}
 ]
 
 if(localStorage.getItem("games") === null){
-    localStorage.setItem("games",JSON.stringify(ProdutosMatriz)); 
+    localStorage.setItem("games",JSON.stringify(ProdutosStore)); 
     localStorage.setItem("cart",JSON.stringify(ProdutosCarrinho));    
     localStorage.setItem("total", JSON.stringify(valor));
 }
 
+check_if_game_is_available();
 
-
-function adicionar_ao_carrinho(item){    
-    let matriz_games = localStorage.getItem("games");
-    matriz_games = JSON.parse(matriz_games);
-    let game_in_cart = matriz_games[item -1];
-    game_in_cart[4] = 1;
+function check_if_game_is_available(){
     
-    let matriz_cart = localStorage.getItem("cart");
-    matriz_cart = JSON.parse(matriz_cart);
+    let all_games = JSON.parse(localStorage.getItem("games"));
+    let buttons = document.querySelectorAll('.games_buttons');
+    let buttons_id = [];
     
+    buttons.forEach(element => {
+        buttons_id.push(element.id);
+    });
+    
+    buttons_id.forEach(element_id => {
+        if(all_games[element_id].quantidade == 0){
+            game_unavailable(element_id);
+        }
+    });
 
-    matriz_games = localStorage.getItem("games");
-    matriz_games = JSON.parse(matriz_games);
-    let game_in_store = matriz_games[item - 1];
-    if (game_in_store[4] != 0){
-        game_in_store[4] -= 1;
-        matriz_cart.push(game_in_cart);
-        localStorage.setItem("cart",JSON.stringify(matriz_cart));
+}
 
-        let cart = localStorage.getItem("cart");
-        cart = JSON.parse(cart);
-        let valor = (cart[0][3]);
-            for(i = 1; i < (cart.length); i++){
-                valor = parseFloat((valor + (cart[i][3])).toFixed(2));
-            }
+function game_unavailable(itemID){
+
+    let change_button = document.getElementById(itemID);
+        change_button.textContent = "Item Esgotado";
+        change_button.classList.remove('games_buttons');
+        change_button.classList.add('games_buttons_unavailable');
+
+}
+
+function adicionar_ao_carrinho(itemID){    
+    let all_games = JSON.parse(localStorage.getItem("games"));
+    let game_in_cart = all_games[itemID];
+    game_in_cart.quantidade = 1; 
+    
+    
+    
+    let all_cart = JSON.parse(localStorage.getItem("cart"));
+    all_games = JSON.parse(localStorage.getItem("games"));
+    
+    let game_in_store = all_games[itemID];
+    
+    if (game_in_store.quantidade != 0){
+        game_in_store.quantidade -= 1;        
+        all_cart.push(game_in_cart);
+        localStorage.setItem("cart",JSON.stringify(all_cart));
+
+        let valor = JSON.parse(localStorage.getItem("total"));
+            valor = parseFloat((valor + game_in_cart.valor).toFixed(2)); 
             localStorage.removeItem("total");
             localStorage.setItem("total",JSON.stringify(valor));
     } else {
-        alert("Item Esgotado");
-        game_in_store[4] = 0;
+        game_unavailable(itemID);        
+        game_in_store.quantidade = 0;
     }
 
-    matriz_games[item - 1] = game_in_store;
+    all_games[itemID] = game_in_store;
     localStorage.removeItem("games");
-    localStorage.setItem("games",JSON.stringify(matriz_games));
+    localStorage.setItem("games",JSON.stringify(all_games));
         
 }
-

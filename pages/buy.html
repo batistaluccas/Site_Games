@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header><a href="index.html"> GameUniverse</a> 
+        <a href="cart.html"><button type="button" id="cart" ></button></a>         
+            <input type="search" id="find_items" placeholder="Encontre o seu game">
+            <button type="button" id="find_items_buttom"></button>
+
+    </header>
+    <main>
+        <div id="description">
+            
+            <h1>Finalizar pedido</h1>
+                <form id="checkout">
+                    <div id="dados_cliente">
+                        <section class="checkout_section">
+                            <label class="item">Nome completo</label>
+                            <input class="checkout_input" id="name">
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">CPF</label>
+                            <input class="checkout_input" id="cpf"> 
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">E-mail</label>
+                            <input class="checkout_input" id="email" type="email">
+                        </section>
+                    </div>
+                    <div id="dados_endereço">
+                        <section class="checkout_section">
+                            <label class="item">CEP</label>
+                            <input class="checkout_input" id="CEP">
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">Bairro</label>
+                            <input class="checkout_input" id="address">
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">Número</label>
+                            <input class="checkout_input" id="number">
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">Cidade</label>
+                            <input class="checkout_input" id="city">
+                        </section>
+                        <section class="checkout_section">
+                            <label class="item">Estado</label>
+                        <input class="checkout_input" id="state">
+                    </section>
+                    <button class="button_section" type="button" onclick="confirmar_compra()">Confirmar Compra</button>
+                </div>
+                </form>
+        </div>
+    </main>
+    <aside>
+        <a href="top_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/top.png)">Mais Vendidos</button></a>        
+        <a href="action_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/action.png)">Ação</button></a>
+        <a href="adventure_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/adventure.png);">Aventura</button></a>
+        <a href="strategy_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/strategy.png);">Estratégia</button></a>
+        <a href="RPG_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/rpg.png);">RPG</button></a>
+        <a href="sports_page.html"><button type="button" id="aside_buttons" style="background-image: url(./images/sports.png);">Esporte</button></a>
+        
+
+    </aside>
+    <footer>Direitos Reservados PlayStation &copy</footer>
+    <script src="./buy.js"></script>
+    
+    
+</body>
+</html>

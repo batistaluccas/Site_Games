@@ -122,8 +122,34 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:80px;
+    gap:50px;
     margin-top: 100px;
+}
+
+#dados_cliente {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #386689;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap:30px;
+    margin-bottom: 30px;
+}
+
+#dados_endereço {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #386689;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap:30px;
+    margin-bottom: 100px;
 }
 
 #cart_description {
@@ -137,6 +163,17 @@ main {
     margin-bottom: 100px;
 }
 
+.checkout_section{
+    display: flex;
+    gap: 15px;
+}
+
+.checkout_input{
+    border-radius: 5px;
+    background-color: #4d8ab9;
+}
+
+
 #item_section{
     display: flex;
     flex-direction: row;
@@ -144,7 +181,7 @@ main {
     
 }
 
-#item{
+.item{
     color: black;   
 }
 
@@ -172,7 +209,12 @@ main {
 
 .button_section{
     border-radius: 10px;
-    background-color: #386689;
+    background-color: #5fb5f6;
+    cursor: pointer;
+}
+
+.button_section:hover{
+    transform: scale(1.1);
 }
 
 #main_description {
@@ -180,29 +222,40 @@ main {
     height: 500px;
 }
 
-#games_images { 
+.games_images { 
     margin-top: 30px;
     border: 10px solid black;
     width: 170px;
     height: 200px;
 }
 
-#games_description {
+.games_description {
     display: flex;
     justify-content: center;  
     margin-top: 10px;  
 }
 
-#games_price {
+.games_price {
     display: flex;
     justify-content: center;  
     margin-top: 10px;
 }
 
-#games_buttons {
+.games_buttons {
     margin-top: 30px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
+.games_buttons:hover{
+    transform: scale(1.05);
+}
+
+.games_buttons_unavailable{
+    margin-top: 30px;
+    background-color: gray;
+    border-radius: 5px;
+}
 
 aside {
     grid-area: aside;
