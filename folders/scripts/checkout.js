@@ -1,4 +1,4 @@
-function confirmar_compra(){
+function confirm_purchase(){
     let name = document.getElementById("name").value;
     let cpf = document.getElementById("cpf").value;
     let email = document.getElementById("email").value;
@@ -10,10 +10,9 @@ function confirmar_compra(){
     let data = [name, cpf, email, cep, address, number, city, state];
 
     let verificador = true;
-    
-    
+        
     for (i = 0; i < data.length; i++){
-        if (data[i] === ''){
+        if (data[i] == ''){
             alert("Todos os campos são necessários");
             verificador = false;
             break;
@@ -22,7 +21,7 @@ function confirmar_compra(){
 
     if (verificador == true){
         alert("Pedido realizado!");
-        window.location.href = "index.html";
+        window.location.href = "../pages/index.html";
     }
     
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header><a href="index.html"> GameUniverse</a> 
+        <a href="cart.html"><button type="button" id="cart"></button></a>         
+            <input type="search" id="find_items" placeholder="Encontre o seu game">
+            <button type="button" id="find_items_buttom"></button>
+
+    </header>
+    <main>
+        <div id="show">
+            <section>
+                <img src="../images/img jogos/fifa23.jpg" class="games_images">
+                <label class="games_description"> FIFA 23</label>
+                <label class="games_price"> R$ 319,99</label>
+                <button id="10" class="games_buttons" onclick="add_to_cart(this.id)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="../images/img jogos/nba.jpg" class="games_images">
+                <label class="games_description"> NBA 2K19</label>
+                <label class="games_price"> R$ 79,99</label>
+                <button id="11" class="games_buttons" onclick="add_to_cart(this.id)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="../images/img jogos/fifa20.jpg" class="games_images">
+                <label class="games_description"> FIFA 20</label>
+                <label class="games_price"> R$ 49,99</label>
+                <button id="12" class="games_buttons" onclick="add_to_cart(this.id)">Adicionar ao carrinho</button>
+            </section>
+            <section>
+                <img src="../images/img jogos/NFl.jpg" class="games_images">
+                <label class="games_description"> Madden NFL 22</label>
+                <label class="games_price"> R$ 249,99</label>
+                <button id="13" class="games_buttons" onclick="add_to_cart(this.id)">Adicionar ao carrinho</button>
+            </section>
+        </div>
+    </main>
+    <aside>
+        <a href="top_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/top.png)">Mais Vendidos</button></a>        
+        <a href="action_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/action.png)">Ação</button></a>
+        <a href="adventure_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/adventure.png);">Aventura</button></a>
+        <a href="strategy_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/strategy.png);">Estratégia</button></a>
+        <a href="RPG_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/rpg.png);">RPG</button></a>
+        <a href="sports_page.html"><button type="button" class="aside_fixed" style="background-image: url(../images/sports.png);">Esporte</button></a>
+        
+
+    </aside>
+    <footer>Direitos Reservados PlayStation &copy</footer>
+    <script src="../scripts/add_to_cart.js"></script>
+</body>
+</html>

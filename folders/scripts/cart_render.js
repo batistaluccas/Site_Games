@@ -2,7 +2,7 @@
     
     function load_cart(){
         
-        if(localStorage.getItem("cart")!==null){           
+        if(localStorage.getItem("cart") != null){           
 
             let cart = JSON.parse(localStorage.getItem("cart"));
             let div = document.getElementById("cart_description");
@@ -47,7 +47,7 @@
                 total.textContent = "Valor Total - R$ " + parseFloat(valor).toFixed(2);
                 
             let button_href = document.createElement("a");
-                button_href.setAttribute("href","buy.html");
+                button_href.setAttribute("href","checkout.html");
                 
             let buy_button = document.createElement("button");
                 buy_button.setAttribute("id", "buy_section");
