@@ -52,6 +52,18 @@ header{
     text-align: center;
 }
 
+#options{
+    width: 175px;
+    position: absolute;
+    top: 28px;
+    right: 300px;
+    background-color: #4d8ab9;  
+    border-radius: 10px;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 #find_items::placeholder {
     color: rgb(45, 44, 44);
 }

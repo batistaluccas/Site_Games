@@ -10,8 +10,10 @@
 <body>
     <header><a href="index.html"> GameUniverse</a> 
         <a href="cart.html"><button type="button" id="cart" ></button></a>         
-            <input type="search" id="find_items" placeholder="Encontre o seu game">
-            <button type="button" id="find_items_buttom"></button>
+            
+            <input  id="find_items" placeholder="Encontre o seu game" onkeydown="find_item()">
+            <ul id="options"></ul>
+            <button type="button" id="find_items_buttom" ></button>
 
     </header>
     <main>
@@ -38,6 +40,7 @@
 
     </aside>
     <footer>Direitos Reservados PlayStation &copy</footer>
+    <script src="../scripts/functions.js"></script>
     <script src="../scripts/local_storage.js"></script>
     
     

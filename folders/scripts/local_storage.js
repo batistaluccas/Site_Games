@@ -7,7 +7,7 @@ let ProdutosStore = [
         quantidade: 5, 
         categoria: "action", 
         imagem: "../images/img jogos/farcry5.jpg",
-        vendidos: 1},
+        vendidos: 10},
         
         {id: 1, 
         nome: "Far Cry 6", 
@@ -152,22 +152,5 @@ if(localStorage.getItem("games") == null){
     localStorage.setItem("cart",JSON.stringify(ProdutosCarrinho));    
     localStorage.setItem("total", JSON.stringify(valor));
     
-    let MaisVendidos = JSON.parse(localStorage.getItem("games"));
-    let vetor_auxiliar;
-    let top_games = 5;
-    
-    for(i = 0; i < (MaisVendidos.length - 1); i++){
-        for (j = i+1; j < MaisVendidos.length; j++){
-            if (MaisVendidos[i].vendidos < MaisVendidos[j].vendidos){
-                vetor_auxiliar = MaisVendidos[i];
-                MaisVendidos[i] = MaisVendidos[j];
-                MaisVendidos[j] = vetor_auxiliar;
-            }
-            
-        }
-    }
-        
-    MaisVendidos.splice(top_games,(MaisVendidos.length - top_games));
-    
-    localStorage.setItem("best_sellers", JSON.stringify(MaisVendidos));
+    best_sellers_update();
 }

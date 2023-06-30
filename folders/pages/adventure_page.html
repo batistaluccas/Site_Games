@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="pages_render(); check_if_game_is_available()">
     <header><a href="index.html"> GameUniverse</a> 
         <a href="cart.html"><button type="button" id="cart"></button></a>         
-            <input type="search" id="find_items" placeholder="Encontre o seu game">
-            <button type="button" id="find_items_buttom"></button>
-
+        <input type="search" id="find_items" placeholder="Encontre o seu game">
+        <button type="button" id="find_items_buttom"></button>
+        
     </header>
     <main id="adventure">
         
@@ -25,10 +25,9 @@
         <a href="RPG_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/rpg.png);">RPG</button></a>
         <a href="sports_page.html"><button type="button" class="aside_buttons" style="background-image: url(../images/sports.png);">Esporte</button></a>
         
-
+        
     </aside>
     <footer>Direitos Reservados PlayStation &copy</footer>
-    <script src="../scripts/add_to_cart.js"></script>
-    <script src="../scripts/shop_render.js"></script>
+    <script src="../scripts/functions.js"></script>
 </body>
 </html>
